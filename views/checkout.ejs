@@ -1,0 +1,66 @@
+<html>
+    <%- include ('./partials/head.ejs') %>
+    <%- include ('./partials/navbar.ejs') %>
+
+    <div class="breadcrumbs_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb_content">
+                        <ul>
+                            <li>
+                                <h1><a href="/">Home</a></h1>
+                            </li>
+                            <li>Add Product</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="login-area mt-25">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-3 col-lg-6">
+                    <div class="checkout_info mb-20">
+                        <form class="form-row" action="/addproduct" method="POST" enctype="multipart/form-data">
+                            <h1 class="last-title mb-30 text-center">Add New Product</h1>
+                            <div class="form_group col-12">
+                                <label class="form-label">Name: <span>*</span></label>
+                                <input class="input-form" required name="fullname" type="text">
+                            </div>
+
+                            <div class="form_group col-12">
+                                <label class="form-label">Product Price: <span>*</span></label>
+                                <input class="input-form" value="<%=amount>" readonly required name="amount" type="text">
+                            </div>
+
+                            
+                            <div class="form_group col-12">
+                                <label class="form-label">Email: <span>*</span></label>
+                                <input class="input-form" required name="email" type="email">
+                            </div>
+
+                            
+                            <div class="form_group group_4 col-lg-6">
+                                <button class="login-register" type="submit">Submit</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <form action="/addproduct" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name">
+        <input type="number" name="price">
+        <input type="text" name="description">
+        <input type="file" name="image">
+        <button type="submit">Submit</button>
+    </form> -->
+
+
+    <%- include ('./partials/footer.ejs') %>

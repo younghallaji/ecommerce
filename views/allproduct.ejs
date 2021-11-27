@@ -1,0 +1,80 @@
+<html>
+    <%- include ('./partials/head.ejs') %>
+    <%- include ('./partials/navbar.ejs') %>
+
+<div class="breadcrumbs_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li>
+                            <h1><a href="/">Home</a></h1>
+                        </li>
+                        <li>All Products</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cart-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <form action="#" class="cart-form">
+                    <!-- Cart Title Start -->
+                    <div class="cart-title">
+                        <h5 class="last-title mt-50 mb-20">Shopping Cart</h5>
+                    </div>
+                    <!-- Cart Title End -->
+                    <!-- Cart Table Area Start -->
+                    <div class="table-desc">
+                        <div class="cart-page table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="product-image">Image</th>
+                                        <th class="product-name">Product</th>
+                                        <th class="product-price">Price</th>
+                                        <th class="product-remove">Edit</th>
+                                        <th class="product-remove">Delete</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%  if (products.length > 0) { %>
+                                        <% products.forEach(product => {   %>
+                                    <tr>
+                                        <td class="product-image"><a href="#"><img src="images/<%= product.image%>" width="50%" alt=""></a></td>
+                                        <td class="product-name"><a href="#"><%= product.name%></a></td>
+                                        <td class="product-price">$ <%= product.price%></td>
+                                        <td><a  href="/<%= product._id%>"><i class="fa fa-edit"></i></a></td>
+                                        <td class="product-remove"><a data-id="<%= product._id%>" class="delete"><i class="fa fa-trash-o"></i></a></td>
+                                    </tr>
+                                
+                                    <%    }) %>
+                                   <% }  %>
+                                   
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <%- include ('./partials/footer.ejs') %>
+                <script>
+                    $(function () {
+                        $('.delete').on('click', function () {
+                            let id = $(this).data('id');
+                            $.ajax({
+                                method: 'DELETE',
+                                url: '/deleteproduct/'+id,
+                                type: 'JSON',
+                                success: function (result) {
+                                    console.log(result)
+                                    window.location = result.redirect
+                                }
+                            })
+                        })
+                    })
+                </script>

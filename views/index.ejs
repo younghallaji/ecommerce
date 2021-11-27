@@ -1,0 +1,122 @@
+<html>
+    <%- include ('./partials/head.ejs') %>
+    <%- include ('./partials/navbar.ejs') %>
+
+    <div class="slider_section mb-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="slider_area slider-one mt-30">
+                        <!-- Single Slider Start -->
+                        <div class="single_slider">
+                            <img src="assets/images/slider/slider-1.png" width="100%" alt="" class="img-fluid">
+                            <div class="slider_content color_one">
+                                <h5>The Hottest <br> Trend</h5>
+                                    <h2>Laptop <br> Tablets Outlet</h2>
+                                        <div class="pt-des">
+                                            <p><span>25%</span>Starting at <span>$340.00</span></p>
+                                        </div>
+                                        <a href="shop.html">Shop Now</a>
+                            </div>
+                        </div>
+                        <!-- Single Slider End -->
+                        <!-- Single Slider Start -->
+                        <div class="single_slider">
+                            <img src="assets/images/slider/slider-2.png" width="100%" alt="" class="img-fluid">
+                            <div class="slider_content color_two">
+                                <h5>The Hottest <br> Trend</h5>
+                                    <h2>Cellphone <br> Smartphone Not 2</h2>
+                                        <div class="pt-des">
+                                            <p><span>35%</span>Starting at <span>$120.00</span></p>
+                                        </div>
+                                        <a href="shop.html">Shop Now</a>
+                            </div>
+                        </div>
+                        <!-- Single Slider End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Area Start -->
+    <div class="product-area mt-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- <ul class="nav nav-tabs theme-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="one-tab" data-bs-toggle="tab" href="#one" role="tab" aria-controls="one" aria-selected="true">New Arrival</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="two-tab" data-bs-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Bestseller</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="three-tab" data-bs-toggle="tab" href="#three" role="tab" aria-controls="three" aria-selected="false">Featured Product</a>
+                        </li>
+                    </ul> -->
+                    <h3 class="text-center">Buy Now</h3>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="one" role="tabpanel" aria-labelledby="one-tab">
+                            <div class="product-thing slick-custom slick-custom-default">
+                                <!-- Single-Product-Start -->
+                                
+                                
+                                    <%  if (products.length > 0) { %>
+                                       <% products.forEach(product => {   %>
+
+                                    <div class="item-product">
+                                        <div class="product-thumb">
+                                            <a href="product-details.html">
+                                                <img src="images/<%= product.image%>" alt="" class="img-fluid">
+                                            </a>
+                                            <div class="box-label">
+                                                <div class="label-product-new">
+                                                    <span>New</span>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="action-link">
+                                                <a class="quick-view same-link" href="#" title="Quick view" data-bs-toggle="modal" data-bs-target="#modal_box" data-original-title="quick view"><i class="zmdi zmdi-eye zmdi-hc-fw"></i></a>
+                                                <a class="compare-add same-link" href="compare.html" title="Add to compare"><i class="zmdi zmdi-refresh-alt"></i></a>
+                                                <a class="wishlist-add same-link" href="wishlist.html" title="Add to wishlist"><i class="zmdi zmdi-favorite-outline zmdi-hc-fw"></i></a>
+                                            </div> -->
+                                        </div>
+                                        <div class="product-caption">
+                                            <div class="product-name">
+                                                <a href="product-details.html"><%= product.name%></a>
+                                            </div>
+                                            <div class="rating">
+                                                <span class="yellow"><i class="fa fa-star"></i></span>
+                                                <span class="yellow"><i class="fa fa-star"></i></span>
+                                                <span class="yellow"><i class="fa fa-star"></i></span>
+                                                <span class="yellow"><i class="fa fa-star"></i></span>
+                                                <span class="grey"><i class="fa fa-star"></i></span>
+                                            </div>
+                                            <div class="price-box">
+                                                <span class="regular-price">$<%= product.price%></span>
+                                            </div>
+                                            <div class="cart">
+                                                <div class="add-to-cart">
+                                                    <a class="cart-plus" href="shopping-cart.html" title="Add to cart"><i class="zmdi zmdi-shopping-cart-plus zmdi-hc-fw"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <form class="p-10" action="/payment" method="POST">
+                                            <input type="hidden" name="amount" value="<%= product.price%>">
+                                            <button type="submit" class="center btn btn-primary text-white">Buy Now</a>
+                                        </form>
+                                    </div>
+                                    <%    }) %>
+                                   <% }  %>
+                                
+                                <!-- Single-Product-End -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product Area End -->
+
+    <%- include ('./partials/footer.ejs') %>
